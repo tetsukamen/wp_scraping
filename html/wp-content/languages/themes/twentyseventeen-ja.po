@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Seventeen package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-13 08:57:43+0000\n"
+"PO-Revision-Date: 2021-01-27 14:36:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,6 +19,27 @@ msgstr "Twenty Seventeen は、没入感のあるアイキャッチ画像と繊�
 #: inc/block-patterns.php:17
 msgid "Twenty Seventeen"
 msgstr "Twenty Seventeen"
+
+#: inc/block-patterns.php:193
+msgid "Contact us"
+msgstr "お問い合わせ"
+
+#: inc/block-patterns.php:184
+msgid "Contact Us"
+msgstr "お問い合わせ"
+
+#: inc/block-patterns.php:148
+msgid "Services"
+msgstr "サービス"
+
+#: inc/block-patterns.php:117
+msgid "Design"
+msgstr "デザイン"
+
+#: inc/block-patterns.php:57 inc/block-patterns.php:103
+#: inc/block-patterns.php:162
+msgid "Branding"
+msgstr "ブランディング"
 
 #: template-parts/footer/footer-widgets.php:18
 msgid "Footer"
@@ -88,7 +109,7 @@ msgstr "カテゴリー"
 #. translators: Used between list items, there is a space after the comma.
 #: inc/template-tags.php:66
 msgid ", "
-msgstr ", "
+msgstr "、"
 
 #. translators: %s: Post date.
 #: inc/template-tags.php:52
@@ -131,7 +152,7 @@ msgstr "固定ページレイアウト"
 
 #: inc/customizer.php:89
 msgid "Theme Options"
-msgstr "テーマオプション"
+msgstr "テーマ設定"
 
 #: inc/customizer.php:64
 msgid "Custom"
@@ -173,11 +194,11 @@ msgstr "トップメニュー"
 
 #: comments.php:62
 msgid "Reply"
-msgstr "返信する"
+msgstr "返信"
 
 #: template-parts/post/content-none.php:33
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "お探しのものが見つからないようです。検索すると良いかもしれません。"
+msgstr "お探しのコンテンツを見つけられませんでした。検索をお試しください。"
 
 #: search.php:59
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
@@ -194,7 +215,7 @@ msgstr "何も見つかりませんでした"
 
 #: single.php:33
 msgid "Previous Post"
-msgstr "過去の投稿"
+msgstr "前の投稿"
 
 #: single.php:33 comments.php:71
 msgid "Previous"
@@ -212,7 +233,7 @@ msgstr "検索"
 #: searchform.php:19
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr "検索 &hellip;"
+msgstr "検索&hellip;"
 
 #: searchform.php:17
 msgctxt "label"
@@ -255,7 +276,7 @@ msgstr "<span class=\"screen-reader-text\">\"%s\" を</span>編集"
 #: template-parts/page/content-front-page.php:48
 #: template-parts/page/content-page.php:26
 msgid "Pages:"
-msgstr "ページ:"
+msgstr "固定ページ:"
 
 #: template-parts/navigation/navigation-top.php:17
 msgid "Menu"
@@ -305,7 +326,7 @@ msgstr "&ldquo;%s&rdquo; への1件の返信"
 
 #: index.php:55 archive.php:51 search.php:52
 msgid "Page"
-msgstr "ページ"
+msgstr "固定ページ"
 
 #: index.php:54 archive.php:50 search.php:51
 msgid "Next page"

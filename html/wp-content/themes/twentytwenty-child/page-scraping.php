@@ -15,10 +15,6 @@ define("USER_AGENT_TEXT", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit
 
 require_once "simple_html_dom.php";
 
-$url = "https://fx.minkabu.jp/indicators/US-NMI"; // アメリカ・ISM非製造業景気指数
-$htmlSource = getApiDataCurl($url, "html");
-$html = str_get_html($htmlSource);
-
 // APIを呼び出し、結果を受け取る処理（URLにアクセスしその結果を取得する処理）
 // $url         ：APIの URI（アクセスする URL）
 // $responseType：受け取る結果のタイプ（header、html、json）
@@ -87,16 +83,66 @@ function getApiDataCurl($url, $responseType = "html")
 
 <?php
 
-$US_NMI_time = $html->find("time", 0);
-// $US_NMI_prev = $html->find("dl[id^=js-indicator_announcement-]", 0)->find('div', 0)->find("dd", 2)->find("span", 1);
-// var_dump($US_NMI_prev);
-
-print_r($US_NMI_time->plaintext);
-print("<br>");
-// print_r($US_NMI_prev->plaintext);
-
+$indcator_arr = [
+    'US_NMI' => [
+        'name' => 'アメリカ・ISM非製造業景気指数',
+        'url' => 'https://fx.minkabu.jp/indicators/US-NMI'
+    ],
+    'US_MIN' => [
+        'name' => 'アメリカ・FOMC議事録',
+        'url' => 'https://fx.minkabu.jp/indicators/US-MIN'
+    ],
+    'US_NFP' => [
+        'name' => 'アメリカ・雇用統計',
+        'url' => 'https://fx.minkabu.jp/indicators/US-NFP'
+    ],
+    'EU_ECBR' => [
+        'name' => 'ユーロ・ECB政策金利',
+        'url' => 'https://fx.minkabu.jp/indicators/EU-ECBR'
+    ],
+    'US_FOMC' => [
+        'name' => 'アメリカ・FRB政策金利',
+        'url' => 'https://fx.minkabu.jp/indicators/US-FOMC'
+    ],
+    'US_GDPA' => [
+        'name' => 'アメリカ・実質ＧＤＰ（速報値）',
+        'url' => 'https://fx.minkabu.jp/indicators/US-GDPA'
+    ],
+    'US_GDPS' => [
+        'name' => 'アメリカ・実質ＧＤＰ（改定値）',
+        'url' => 'https://fx.minkabu.jp/indicators/US-GDPS'
+    ]
+];
 
 ?>
+
+<table id="indicator">
+    <thead>
+        <th>指標名</th>
+        <th>発表日時</th>
+        <th>前回</th>
+        <th>結果</th>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($indcator_arr as $value):
+            $url = $value['url'];
+            $htmlSource = getApiDataCurl($url, "html");
+            $html = str_get_html($htmlSource);
+            // テキストを抽出
+            $time = $html->find("time", 0)->plaintext;
+            $prev = $html->find("dl[id^=js-indicator_announcement-]", 0)->find('div', 0)->find("dd", 2)->find("span", 1)->plaintext;
+            $result = $html->find("dl[id^=js-indicator_announcement-]", 0)->find('div', 0)->find("dd", 1)->find("span", 1)->plaintext;
+        ?>
+        <tr>
+            <td><?php print_r($value['name']) ?></td>
+            <td><?php print_r($time) ?></td>
+            <td><?php print_r($prev) ?></td>
+            <td><?php print_r($result) ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 
 <?php endwhile; endif; ?>
 

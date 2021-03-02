@@ -8,3 +8,12 @@
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  twenty-twenty-child
 */
+
+table#indicator {
+    background-color: rgb(218, 218, 218) !important;
+}
+
+table#indicator th,
+table#indicator td {
+    border-color: #000 !important;
+}
